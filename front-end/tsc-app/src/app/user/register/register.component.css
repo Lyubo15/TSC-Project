@@ -1,0 +1,81 @@
+main {
+  display: flex;
+  font-family: 'Helvetica', sans-serif;
+  vertical-align: top;
+  background: rgb(237, 183, 125);
+}
+
+article {
+  margin: 5px 5px;
+}
+
+article img {
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+  width: calc(100vw - 425px);
+  height: 85vh;
+}
+
+.form-wrapper {
+  color: black;
+  text-align: center;
+  height: 73vh;
+  padding: 58.3px 51px;
+}
+
+.create-account-btn {
+  padding: 10px 20px;
+  border-radius: 13px;
+}
+
+.login-btn:hover{
+  cursor: pointer;
+}
+
+.error {
+  color: red;
+}
+
+.create-account-btn a {
+  text-decoration: none;
+  color: black;
+  font-size: 20px;
+}
+
+.text-center a {
+  text-decoration: none;
+  color: black;
+  font-size: 20px;
+}
+
+.text-center {
+  font-size: 15px;
+}
+
+.form-wrapper label,
+input {
+  background: transparent;
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid black;
+  color: black;
+  outline: none;
+}
+
+main>article:nth-child(2)>form>fieldset {
+  padding: 0px 40px;
+  height: 73vh;
+  border: none;
+}
+
+@media all and (max-width: 340px) {
+  .form-wrapper {
+    padding: 28.3px 21px;
+  }
+}
+
+@media all and (max-height: 750px) {
+  .form-wrapper[_ngcontent-yrg-c53] {
+    padding: 0.3px 0px;
+  }
+}

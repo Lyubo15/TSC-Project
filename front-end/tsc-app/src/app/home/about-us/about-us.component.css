@@ -1,0 +1,32 @@
+main {
+  display: flex;
+  flex-direction: column;
+  padding: 100px 450px;
+}
+
+article h1 {
+  text-align: left;
+  font-size: 50px;
+}
+
+article p {
+  font-size: 25px;
+}
+
+@media all and (max-width: 950px) {
+  main {
+    padding: 100px 300px;
+  }
+}
+
+@media all and (max-width: 700px) {
+  main {
+    padding: 50px 150px;
+  }
+}
+
+@media all and (max-width: 350px) {
+  main {
+    padding: 50px 100px;
+  }
+}

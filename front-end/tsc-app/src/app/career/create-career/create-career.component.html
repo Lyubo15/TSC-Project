@@ -1,0 +1,48 @@
+<main>
+    <article>
+      <img src="https://img.freepik.com/free-vector/market-launch-concept-illustration_114360-1498.jpg?size=626&ext=jpg&ga=GA1.2.61417944.1607625055" alt="career">
+    </article>
+  
+    <article>
+      <form class="form-wrapper" #form="ngForm" class="create-career" (ngSubmit)="submitFormHandler(form.value)">
+  
+        <fieldset>
+          <h2>Create Career</h2>
+  
+          <!-- title -->
+
+          <p class="field field-icon">
+            <label for="title">Title</label>
+            <input #careerTitle="ngModel" type="text" name="title" id="title" ngModel required maxlength="50">
+          </p>
+  
+          <p *ngIf="careerTitle.touched && careerTitle.errors?.required" class="error">
+            Title is required!
+          </p>
+          <p *ngIf="careerTitle.touched && careerTitle.errors?.maxlength" class="error">
+            Title can not be at more than 50 characters!
+          </p>
+
+          <!-- description -->
+
+          <p class="field field-icon">
+            <label for="description">Description</label>
+            <input #careerDescription="ngModel" type="textarea" name="description" id="description" ngModel required>
+          </p>
+
+          <p *ngIf="careerDescription.touched && careerDescription.errors?.required" class="error">
+            Description is required!
+          </p>
+  
+          <p *ngIf="errorMessage" class="error">
+            {{errorMessage}}
+          </p>
+  
+          <button class="create-career-btn" [disabled]="loading || form.invalid">Create</button>
+  
+        </fieldset>
+      </form>
+      <app-loader [loading]="loading"></app-loader>
+    </article>
+  </main>
+  

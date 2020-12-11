@@ -1,0 +1,21 @@
+<article *ngIf="jobs" class="job-vacancies-items">
+  <ul *ngFor="let job of jobs">
+    <li>
+      <img
+        src="https://thumbs.dreamstime.com/t/set-icon-character-cook-waiter-chef-waitress-vector-flat-illustration-bottle-wine-man-knife-proud-mustache-88515289.jpg"
+        alt="job">
+      <h2 class="job-vacancies-item-title">{{job.title}}</h2>
+      <button class="job-vacancies-items-view-btn" [routerLink]="'/career/details/' + job._id">View</button>
+      <button class="job-vacancies-items-apply-btn">Apply</button>
+    </li>
+  </ul>
+
+
+  <div *ngIf="!jobs">
+    Loading...
+  </div>
+</article>
+
+<article *ngIf="jobs.length === 0">
+  <h1 class="no-jobs-offers">No Jobs offers!</h1>
+</article>

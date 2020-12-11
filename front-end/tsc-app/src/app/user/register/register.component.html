@@ -1,0 +1,126 @@
+<main>
+  <article>
+    <img src="https://t4.ftcdn.net/jpg/02/51/50/19/240_F_251501944_f6up7IJibkC7Mbew22Hpn1LR5zbUKnup.jpg" alt="welcome">
+  </article>
+
+  <article>
+    <form [formGroup]="form" class="form-wrapper" (ngSubmit)="submitHandler()">
+
+      <fieldset>
+        <h2>Register</h2>
+
+        <!-- firstName -->
+        <p class="field field-icon">
+          <label for="firstName"><span><i class="fas fa-user"></i></span></label>
+          <input [class.input-error]="form.get('firstName').touched && !!form.get('firstName').errors" type="text"
+            name="firstName" id="firstName" placeholder="Johnny" formControlName="firstName">
+        </p>
+        <p *ngIf="form.get('firstName').touched && form.get('firstName').errors?.required" class="error">
+          First Name is required!
+        </p>
+        <p *ngIf="form.get('firstName').touched && form.get('firstName').errors?.minlength" class="error">
+          First Name must be at least 2 characters!
+        </p>
+
+        <!-- lastName -->
+        <p class="field field-icon">
+          <label for="lastName"><span><i class="fas fa-user"></i></span></label>
+          <input [class.input-error]="form.get('lastName').touched && !!form.get('lastName').errors" type="text"
+            name="lastName" id="lastName" placeholder="Depp" formControlName="lastName">
+        </p>
+        <p *ngIf="form.get('lastName').touched && form.get('lastName').errors?.required" class="error">
+          Last Name is required!
+        </p>
+        <p *ngIf="form.get('lastName').touched && form.get('lastName').errors?.minlength" class="error">
+          Last Name must be at least 2 characters!
+        </p>
+
+        <!-- email -->
+        <p class="field field-icon">
+          <label for="email"><span><i class="fas fa-envelope"></i></span></label>
+          <input [class.input-error]="form.get('email').touched && !!form.get('email').errors" type="email" name="email"
+            id="email" placeholder="johnny.depp@gmail.com" formControlName="email">
+        </p>
+        <p *ngIf="form.get('email').touched && form.get('email').errors?.required" class="error">
+          Email is required!
+        </p>
+        <p *ngIf="form.get('email').touched && form.get('email').errors?.emailValidator" class="error">
+          Email is not valid!
+        </p>
+
+        <!-- telephone -->
+        <p class="field field-icon">
+          <label for="tel"><span><i class="fas fa-phone"></i></span></label>
+          <input [class.input-error]="form.get('tel').touched && !!form.get('tel').errors" type="text" name="tel"
+            id="tel" placeholder="089 888 8877" formControlName="tel">
+        </p>
+
+        <p *ngIf="form.get('tel').touched && form.get('tel').errors?.required" class="error">
+          Phone number is required!
+        </p>
+
+        <p *ngIf="form.get('tel').touched && form.get('tel').errors?.minlength" class="error">
+          Phone number must be exactly 10 symbols!
+        </p>
+
+        <p *ngIf="form.get('tel').touched && form.get('tel').errors?.maxlength" class="error">
+          Phone number must be exactly 10 symbols!
+        </p>
+
+        <p *ngIf="form.get('tel').touched && form.get('tel').errors?.pattern" class="error">
+          Phone number must be only digits!
+        </p>
+
+        <!-- password -->
+        <p class="field field-icon">
+          <label for="password"><span><i class="fas fa-lock"></i></span></label>
+          <input [class.input-error]="form.get('password').touched && !!form.get('password').errors" type="password"
+            name="password" id="password" placeholder="******" formControlName="password">
+        </p>
+        <p *ngIf="form.get('password').touched && form.get('password').errors?.required" class="error">
+          Password is required!
+        </p>
+        <p *ngIf="form.get('password').touched && form.get('password').errors?.minlength" class="error">
+          Password must be at least 5 characters!
+        </p>
+
+        <!-- rePassword -->
+        <p class="field field-icon">
+          <label for="rePassword"><span><i class="fas fa-lock"></i></span></label>
+          <input [class.input-error]="form.get('rePassword').touched && !!form.get('rePassword').errors" type="password"
+            name="rePassword" id="rePassword" placeholder="******" formControlName="rePassword">
+        </p>
+
+        <p *ngIf="form.get('rePassword').touched && form.get('rePassword').errors?.required" class="error">
+          Repeat Repeat Password is required!
+        </p>
+
+        <p *ngIf="form.get('rePassword').touched && form.get('rePassword').errors?.minlength" class="error">
+          Repeat Password must be at least 5 characters!
+        </p>
+
+        <p *ngIf="form.get('rePassword').touched && form.get('rePassword').errors?.rePasswordValidator" class="error">
+          Repeat Password does not match password!
+        </p>
+
+        <!-- remember me -->
+        <p class="field field-icon">
+          <label for="rememberMe">Remember me</label>
+          <input type="checkbox" name="rememberMe" id="rememberMe" formControlName="rememberMe">
+        </p>
+
+        <p class="error">{{errorMessage}}</p>
+
+        <button [disabled]="form.invalid" class="create-account-btn">Create Account</button>
+
+        <p class="text-center">
+          Have an account?
+          <a routerLink="/signin">Sign In</a>
+        </p>
+
+      </fieldset>
+    </form>
+
+    <app-loader [loading]="loading"></app-loader>
+  </article>
+</main>

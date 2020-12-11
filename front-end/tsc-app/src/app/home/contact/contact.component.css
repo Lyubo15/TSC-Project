@@ -1,0 +1,63 @@
+main {
+  display: flex;
+  flex-direction: column;
+  padding: 100px 450px;
+  text-align: center;
+}
+
+h1 {
+  font-size: 90px;
+}
+
+article {
+    font-style: italic;
+}
+
+@media all and (max-width: 960px) {
+  main {
+    padding: 100px 300px;
+  }
+}
+
+@media all and (max-width: 700px) {
+  main {
+    padding: 50px 150px;
+  }
+
+  h1 {
+    font-size: 50px;
+  }
+  
+}
+
+@media all and (max-width: 400px) {
+  main {
+    padding: 50px 90px;
+  }
+
+  h1 {
+    font-size: 30px;
+  }
+}
+
+@media all and (max-width: 350px) {
+main {
+    padding: 50px 50px;
+  }
+
+  h1 {
+    font-size: 30px;
+  }
+}
+
+
+@media all and (max-width: 300px) {
+    main {
+        padding: 30px 30px;
+      }
+    
+      h1 {
+        font-size: 30px;
+      }
+    }
+    

@@ -1,0 +1,23 @@
+<main>
+  <section class="career-details-content">
+    <article>
+      <h1 class="career-details-title">Your Career</h1>
+      <button class="delete-btn" type="submit" (click)="deleteCareer(job._id)" *ngIf="isUserAnAdmin | async">Delete</button>
+      <button *ngIf="isUserAnAdmin | async" [routerLink]="'/career/edit/' + job_id">Edit</button>
+    </article>
+
+    <article class="career-details-content-img">
+      <img
+        src="https://img.freepik.com/free-vector/cheerful-couple-boosting-with-jet-pack-isolated-flat-illustration_74855-10502.jpg?size=626&ext=jpg&ga=GA1.2.61417944.1607625055"
+        alt="career">
+    </article>
+  </section>
+
+  <section>
+    <article>
+      <h2 class="job-title">{{job.title}}</h2>
+
+      <p class="job-description">{{job.description}}</p>
+    </article>
+  </section>
+</main>

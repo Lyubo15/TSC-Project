@@ -1,0 +1,42 @@
+<main>
+  <section class="career-content">
+    <article class="career-content-img">
+      <ul>
+        <li>
+          <img
+            src="https://img.freepik.com/free-vector/employer-growing-business-professionals-metaphor-hand-watering-plants-employees-flowerpots-vector-illustration-growth-development-career-training-concept_74855-9857.jpg?size=626&ext=jpg&ga=GA1.2.61417944.1607625055"
+            alt="career">
+        </li>
+        <li>
+          <img
+            src="https://img.freepik.com/free-vector/professional-waiters-illustration_67394-957.jpg?size=626&ext=jpg&ga=GA1.2.61417944.1607625055"
+            alt="career">
+        </li>
+        <li>
+          <img
+            src="https://image.freepik.com/free-vector/butler-waiters-are-welcoming-customers-restaurant-front-door_209620-430.jpg"
+            alt="career">
+        </li>
+      </ul>
+    </article>
+
+    <article class="career-content-title">
+      <h1 class="career-content-title-1">Your career</h1>
+      <h2 class="career-content-title-2">Is our responisbility</h2>
+      <h3 class="career-content-title-3">Join the team of <strong>TSC</strong></h3>
+
+
+      <div *ngIf="isUserAnAdmin | async">
+        <a class="create-career-btn" routerLink='/career/create'>Create Career</a>
+      </div>
+   
+    </article>
+  </section>
+
+  <section class="job-vacancies">
+    <h1 class="job-vacancies-title">Job Vacancies:</h1>
+    
+    <app-jobs></app-jobs>
+
+</section>
+</main>

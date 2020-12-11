@@ -1,0 +1,53 @@
+@import 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css';
+
+footer {
+  background: rgb(29, 31, 31);
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 20%;
+  font-size: 20px;
+}
+
+footer ul {
+  padding: 0%;
+}
+
+footer li {
+  list-style: none;
+  padding-bottom: 25px;
+}
+
+.footer-icons {
+  display: flex;
+}
+
+.footer-icons li {
+  padding-right: 20px;
+  font-size: 40px;
+}
+
+footer li a{
+  color: white;
+  text-decoration: none;
+}
+
+@media all and (max-width: 1100px) {
+
+  footer {
+    flex-wrap: wrap;
+  }
+
+  .footer-icons li {
+    padding-left: 10px;
+    font-size: 25px;
+  }
+}
+
+@media all and (max-width: 250px) {
+
+  .footer-icons li {
+    padding-left: 5px;
+    font-size: 20px;
+  }
+}

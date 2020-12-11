@@ -1,0 +1,88 @@
+main {
+  display: flex;
+  font-family: 'Helvetica', sans-serif;
+  vertical-align: top;
+  background: white;
+  text-align: center;
+}
+
+article {
+  margin: 5px 5px;
+}
+
+article img {
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+  width: calc(100vw - 425px);
+  height: 85vh;
+}
+
+.form-wrapper {
+  background: #111111;
+  color: black;
+  text-align: center;
+  height: 73vh;
+  padding: 58.3px 51px;
+}
+
+.create-career-btn {
+  padding: 10px 20px;
+  border-radius: 13px;
+}
+
+.create-career-btn:hover {
+  cursor: pointer;
+}
+
+.text-center a {
+  text-decoration: none;
+  color: black;
+  font-size: 20px;
+}
+
+.text-center {
+  font-size: 15px;
+}
+
+.error {
+  color: red;
+}
+
+.form-wrapper label,
+input {
+  background: transparent;
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid black;
+  color: black;
+}
+
+main>article:nth-child(2)>form>fieldset {
+  padding: 26px 76.3px;
+  border: none;
+}
+
+@media all and (max-width: 340px) {
+  .form-wrapper {
+    padding: 28.3px 21px;
+  }
+}
+
+@media all and (max-width: 950px) {
+  main {
+    display: flex;
+    flex-direction: column;
+  }
+
+  article img {
+    width: calc(100vw - 205px);
+    height: 45vh;
+  }
+}
+
+@media all and (max-width: 350px) {
+  article img {
+    width: calc(100vw - 80px);
+    height: 45vh;
+  }
+}

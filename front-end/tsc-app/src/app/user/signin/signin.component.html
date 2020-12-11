@@ -1,0 +1,59 @@
+<main>
+  <article>
+    <img src="https://t4.ftcdn.net/jpg/02/51/50/19/240_F_251501944_f6up7IJibkC7Mbew22Hpn1LR5zbUKnup.jpg" alt="welcome">
+  </article>
+
+  <article>
+    <form class="form-wrapper" #form="ngForm" class="login" (ngSubmit)="submitFormHandler(form.value)">
+
+      <fieldset>
+        <h2>Sign In</h2>
+
+        <p class="field field-icon">
+          <label for="firstName"><span><i class="fas fa-envelope"></i></span></label>
+          <input #userFirstName="ngModel" type="text" name="firstName" id="firstName" placeholder="Johnny" ngModel
+            required minlength="2">
+        </p>
+
+        <p *ngIf="userFirstName.touched && userFirstName.errors?.required" class="error">
+          First Name is required!
+        </p>
+        <p *ngIf="userFirstName.touched && userFirstName.errors?.minlength" class="error">
+          First Name must be at least 2 characters!
+        </p>
+
+        <p class="field field-icon">
+          <label for="password"><span><i class="fas fa-lock"></i></span></label>
+          <input #userPassword="ngModel" type="password" name="password" id="password" placeholder="******" ngModel
+            required minlength="5">
+        </p>
+
+        <p *ngIf="userPassword.touched && userPassword.errors?.required" class="error">
+          Password is required!
+        </p>
+        <p *ngIf="userPassword.touched && userPassword.errors?.minlength" class="error">
+          Password must be at least 5 characters!
+        </p>
+
+        <!-- remember me -->
+        <p class="field field-icon">
+          <label for="rememberMe">Remember me</label>
+          <input type="checkbox" name="rememberMe" id="rememberMe" ngModel>
+        </p>
+
+        <p *ngIf="errorMessage" class="error">
+          {{errorMessage}}
+        </p>
+
+        <button class="login-btn" [disabled]="loading || form.invalid">Login</button>
+
+        <p class="text-center">
+          Have not an account?
+          <a routerLink="/register">Register</a>
+        </p>
+
+      </fieldset>
+    </form>
+    <app-loader [loading]="loading"></app-loader>
+  </article>
+</main>

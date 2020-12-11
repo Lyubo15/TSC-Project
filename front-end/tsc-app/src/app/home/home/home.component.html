@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <main class="home">
+    <section class="home-content">
+
+      <article class="home-content-logo">
+        <div class="home-content-border">
+          <div class="home-content-above-border"></div>
+          <div class="home-content-down-border">
+            <h2 class="home-content-title-1">Restaurant</h2>
+            <h1 class="home-content-title-2">TSC</h1>
+            <h3 class="home-content-title-3">Tasty & Spicy & Crunchy</h3>
+
+            <div *ngIf="!(isLogged | async)">
+              <ul class="auth-btn">
+                <li><a routerLink="/signin">Login</a></li>
+                <li><a routerLink='/register'>Register</a></li>
+              </ul>
+            </div>
+
+            <div *ngIf="isLogged | async">
+              <ul class="logout-btn">
+                <li>
+                  <a (click)="logoutHandler()">Logout</a>
+                </li>
+              </ul>
+            </div>
+
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section class="home-little-desctiption">
+      <ul class="home-little-desctiption-images">
+        <li><img src="https://t4.ftcdn.net/jpg/01/70/01/87/240_F_170018701_gcuviQ0VE95oW2a6gX2mb1yc1cqjpqIM.jpg"
+            alt="Restaurant"></li>
+        <li> <img src="https://t3.ftcdn.net/jpg/01/70/46/26/240_F_170462661_DucnHuvtx7eGvwnBJmNjW3CvKUGONpvQ.jpg"
+            alt="Restaurant"></li>
+        <li><img src="https://t3.ftcdn.net/jpg/02/27/62/24/240_F_227622470_sJ3yEaz44RK7UrWNaGdSn7azgeRu9UDs.jpg"
+            alt="Restaurant"></li>
+      </ul>
+      <article class="home-little-desctiption-content">
+        <h2>Welcome to</h2>
+        <h1 class="home-little-desctiption-content-name">TSC</h1>
+        <h2>Restaurant</h2>
+
+        <p class="home-little-desctiption-content-text"><strong>TSC</strong> is a chain of casual restaurants in
+          Bulgaria. Due to the extremely high quality of food and high standard of service brand in Bulgaria
+          <strong>TSC</strong> is the strongest in its class and also the largest. Our restaurants are located in the
+          most central locations in major cities, on highways and main roads of the country.
+        </p>
+      </article>
+    </section>
+
+    <section class="career">
+      <article class="career-img">
+        <img src="https://global.bg/en/wp-content/uploads/2017/03/athena-swan-membership.jpg" alt="career">
+      </article>
+      <article class="career-items">
+        <ul>
+          <li>ITEM</li>
+          <li>ITEM</li>
+          <li>ITEM</li>
+          <li>ITEM</li>
+          <li>ITEM</li>
+        </ul>
+      </article>
+    </section>
+  </main>
+</body>
+
+</html>

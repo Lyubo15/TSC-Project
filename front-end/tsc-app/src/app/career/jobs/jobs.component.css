@@ -26,6 +26,12 @@ ul {
   text-align: center;
 }
 
+.no-jobs-offers {
+  font-size: 40px;
+  color: black;
+  text-align: center;
+}
+
 @media all and (max-width: 700px) {
   .job-vacancies-items ul li {
     display: flex;
@@ -38,6 +44,10 @@ ul {
 
   .job-vacancies-items-view-btn {
       margin-bottom: 5px;
+  }
+
+  img {
+    margin: 0px auto;
   }
 }
 

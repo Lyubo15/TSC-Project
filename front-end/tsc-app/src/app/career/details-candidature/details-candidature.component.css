@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Langar&display=swap');
+
+main {
+  background-image: linear-gradient(rgba(0, 0, 0, .7), rgba(0, 0, 0, 0.2)), url('https://img.freepik.com/free-vector/recruitment-illustration-concept_23-2148628156.jpg?size=626&ext=jpg&ga=GA1.2.61417944.1607625055');
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  box-shadow: 0 -7px 20px -2px black;
+  font-family: 'Langar', cursive;
+}
+
+h1, h2 {
+    text-decoration: underline;
+    font-size: 30px;
+}
+
+h3, p {
+    font-size: 20px;
+}
+
+p {
+    margin-bottom: 5px;
+    word-break: break-all;
+}
+
+.candidature-contet {
+    text-align: center;
+}
+
+.candidature-contet-title {
+    font-size: 50px;
+    margin: 0px;
+    padding-top: 40px;
+}
+
+.candidature-info {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 20px;
+}
+
+.candidature-info article {
+    padding-left: 5px;
+}
+
+@media all and (max-width: 900px){
+    .candidature-info {
+        flex-direction: column;
+        text-align: center;
+    }
+}

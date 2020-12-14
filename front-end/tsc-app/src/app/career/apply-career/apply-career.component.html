@@ -1,0 +1,41 @@
+<main>
+  <section class="content">
+    <article>
+      <img
+        src="https://image.freepik.com/free-vector/we-are-hiring-concept-with-man-holding-join-us-banner_227564-178.jpg"
+        alt="join-us">
+    </article>
+
+    <article>
+      <form class="form-wrapper" #form="ngForm" class="create-career" (ngSubmit)="submitFormHandler(form.value)">
+
+        <fieldset>
+          <h2>Apply</h2>
+
+          <!-- about you -->
+
+          <p class="field field-icon">
+            <label for="aboutYou">Tell us more about you</label>
+            <input #aboutYou="ngModel" type="text" name="aboutYou" id="aboutYou" ngModel required>
+          </p>
+
+          <p *ngIf="aboutYou.touched && aboutYou.errors?.required" class="error">
+            Title is required!
+          </p>
+
+          <p *ngIf="errorMessage" class="error">
+            {{errorMessage}}
+          </p>
+
+          <button class="apply-btn" [disabled]="loading || form.invalid">Apply</button>
+
+        </fieldset>
+      </form>
+      <app-loader [loading]="loading"></app-loader>
+    </article>
+  </section>
+
+  <section class="job-description">
+    <app-job-article></app-job-article>
+  </section>
+</main>

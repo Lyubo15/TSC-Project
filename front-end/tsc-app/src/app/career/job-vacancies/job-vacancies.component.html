@@ -29,14 +29,20 @@
       <div *ngIf="isUserAnAdmin | async">
         <a class="create-career-btn" routerLink='/career/create'>Create Career</a>
       </div>
-   
+
+      <div class="get-all-candidatures" *ngIf="isUserAnAdmin | async">
+        <a class="get-all-candidatures-btn" routerLink='/candidatures'>All Candidatures</a>
+      </div>
     </article>
+
   </section>
 
-  <section class="job-vacancies">
-    <h1 class="job-vacancies-title">Job Vacancies:</h1>
-    
-    <app-jobs></app-jobs>
+  <section>
 
-</section>
+    <article class="job-vacancies">
+      <h1 class="job-vacancies-title">Job Vacancies:</h1>
+      <app-jobs></app-jobs>
+    </article>
+
+  </section>
 </main>

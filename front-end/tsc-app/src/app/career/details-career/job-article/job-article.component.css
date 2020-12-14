@@ -1,0 +1,18 @@
+.job-title {
+  font-size: 40px;
+}
+
+.job-description {
+  font-size: 30px;
+  word-break: break-word;
+}
+
+@media all and (max-width: 350px) {
+  .job-title {
+    font-size: 30px;
+  }
+
+  .job-description {
+    font-size: 20px;
+  }
+}

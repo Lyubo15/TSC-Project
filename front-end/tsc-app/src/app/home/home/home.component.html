@@ -25,17 +25,9 @@
                 <li><a routerLink='/register'>Register</a></li>
               </ul>
             </div>
-
-            <div *ngIf="isLogged | async">
-              <ul class="logout-btn">
-                <li>
-                  <a (click)="logoutHandler()">Logout</a>
-                </li>
-              </ul>
-            </div>
-
           </div>
         </div>
+
       </article>
     </section>
 
@@ -66,13 +58,7 @@
         <img src="https://global.bg/en/wp-content/uploads/2017/03/athena-swan-membership.jpg" alt="career">
       </article>
       <article class="career-items">
-        <ul>
-          <li>ITEM</li>
-          <li>ITEM</li>
-          <li>ITEM</li>
-          <li>ITEM</li>
-          <li>ITEM</li>
-        </ul>
+        <app-jobs [limit]="limit"></app-jobs>
       </article>
     </section>
   </main>

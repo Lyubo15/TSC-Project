@@ -4,12 +4,15 @@ import { HomeComponent } from './home/home.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { ContactComponent } from './contact/contact.component';
 import { RouterModule } from '@angular/router';
+import { JobsComponent } from '../career/jobs/jobs.component';
+import { CareerModule } from '../career/career.module';
 
 @NgModule({
   declarations: [HomeComponent, AboutUsComponent, ContactComponent],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    CareerModule
   ],
   exports: [HomeComponent, AboutUsComponent]
 })

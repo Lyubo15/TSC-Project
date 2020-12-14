@@ -18,7 +18,7 @@ import { AdminGuard } from './auth/admin.guard';
     LoggedGuard,
     AdminGuard,
     AuthService,
-    authInterceptorProvider,
+    authInterceptorProvider
   ],
 })
 export class CoreModule { }

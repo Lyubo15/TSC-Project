@@ -1,0 +1,53 @@
+<main>
+  <section class="career-content">
+    <article class="career-content-img">
+      <ul>
+        <li>
+          <img
+            src="https://img.freepik.com/free-vector/recruit-agent-analyzing-candidates_74855-4565.jpg?size=626&ext=jpg&ga=GA1.2.61417944.1607625055"
+            alt="career">
+        </li>
+        <li>
+          <img
+            src="https://img.freepik.com/free-vector/recruiting-professionals-studying-candidate-profiles_1262-21404.jpg?size=626&ext=jpg&ga=GA1.2.61417944.1607625055"
+            alt="career">
+        </li>
+        <li>
+          <img
+            src="https://img.freepik.com/free-vector/employers-choosing-candidates-job-interview_74855-5239.jpg?size=626&ext=jpg&ga=GA1.2.61417944.1607625055"
+            alt="career">
+        </li>
+      </ul>
+    </article>
+  </section>
+
+  <section class="candidatures">
+    
+    <article>
+      <h1 class="candidatures-title">Candidatures:</h1>
+    </article>
+
+    <article *ngIf="candidatures" class="candidatures-items">
+      <ul *ngFor="let candidature of candidatures">
+        <li>
+          <img
+            src="https://thumbs.dreamstime.com/t/set-icon-character-cook-waiter-chef-waitress-vector-flat-illustration-bottle-wine-man-knife-proud-mustache-88515289.jpg"
+            alt="job">
+          <h2 class="candidature-user-first-name">{{candidature.user.firstName}}</h2>
+          <h2 class="candidature-user-last-name">{{candidature.user.lastName}}</h2>
+          <h2 class="candidature-career-title">{{candidature.career.title}}</h2>
+          <button class="candidatures-items-view-btn" (click)="deleteCandidature(candidature._id)">Delete</button>
+          <button class="candidatures-items-view-btn" [routerLink]="'/candidature/details/' + candidature._id">View</button>
+        </li>
+      </ul>
+
+      <div *ngIf="!candidatures">
+        <app-loader [loading]="loading"></app-loader>
+      </div>
+
+      <h1 *ngIf="!candidatures">No Candidatures</h1>
+
+    </article>
+
+  </section>
+</main>

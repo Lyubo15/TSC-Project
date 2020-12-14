@@ -9,6 +9,7 @@ import { AuthService } from '../../core/auth/auth.service'
 export class HomeComponent implements OnInit {
 
   isLogged = this.authService.isLogged$;
+  limit: number = 4;
 
   constructor(private authService: AuthService) {
   }

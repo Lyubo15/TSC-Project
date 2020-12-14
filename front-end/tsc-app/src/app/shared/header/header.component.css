@@ -28,6 +28,10 @@ header {
   font-weight: 450;
 }
 
+.nav-list-item:last-child {
+  cursor: pointer;
+}
+
 @media all and (max-width: 1550px) {
   .nav-list-item {
     margin: 0px 60px;

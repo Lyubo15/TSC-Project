@@ -2,7 +2,6 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../core/auth/auth.service'
 import { CareerService } from '../career.service';
-import { IJob } from '../interfaces/job';
 
 @Component({
   selector: 'app-job-vacancies',

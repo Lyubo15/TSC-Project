@@ -21,13 +21,12 @@
             </article>
           </a>
         </li>
-        <li class="nav-list-item"><a routerLink='/delivery'>DELIVERY</a></li>
         <li class="nav-list-item"><a routerLink='/career'>CAREERS</a></li>
-        <li class="nav-list-item"><a routerLink="/about-us" routerLinkActive="active">ABOUT US</a></li>
+        <li class="nav-list-item"><a routerLink="/about-us">ABOUT US</a></li>
+        <li class="nav-list-item" *ngIf="isLogged | async"><a (click)="logoutHandler()">LOGOUT</a></li>
       </ul>
     </nav>
   </header>
-
 </body>
 
 </html>

@@ -20,7 +20,7 @@ export class CreateCareerComponent {
   submitFormHandler(formValue: { title: string, description: string }) {
     this.loading = true;
 
-    this.careerService.createCareer({ title: formValue.title, description: formValue.description }).subscribe({
+    this.careerService.createCareer(formValue).subscribe({
       next: () => {
         this.loading = false;
         this.router.navigate(['/career']);

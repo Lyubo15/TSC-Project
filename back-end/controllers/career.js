@@ -1,6 +1,6 @@
-const careerErrorHandler = require('../validations/career')
+const {careerErrorHandler, careerEditErrorHandler} = require('../validations/career')
+const { deleteAllCandidaturesByCareerName } = require('../controllers/candidature')
 const Career = require('../models/career')
-
 
 const createCareer = async (req, res) => {
     const errors = await careerErrorHandler(req)
@@ -43,6 +43,7 @@ const deleteCareerById = async (req, res) => {
 
     try{
         const career = await Career.findByIdAndDelete(id)
+        deleteAllCandidaturesByCareerName(career._id);
         return res.status(200).send(career);
     } catch(err) {
         return res.status(404).send({'message': `Can not find career with id: ${id}`})
@@ -51,7 +52,7 @@ const deleteCareerById = async (req, res) => {
 
 const editCareerById = async (req, res) => {
     const id = req.params.id;
-    const errors = await careerErrorHandler(req)
+    const errors = await careerEditErrorHandler(req)
 
     if(await Career.findById(id) === null) {
         return res.status(404).send({'message': `Can not find career with id: ${id}`})
@@ -64,15 +65,11 @@ const editCareerById = async (req, res) => {
     const {title, description} = req.body
     let update = {};
 
-    Object.entries(req.body).filter(input => input !== "").map(input => update[input] = input);
-
-    console.log(update);
-
     title && (update.title = title)
     description && (update.description = description)
 
     try{
-        const career = await Career.findOneAndUpdate(id, update, {new: true, runValidators: true});
+        const career = await Career.findByIdAndUpdate(id, update, {new: true, runValidators: true});
         return res.status(200).send(career);
     } catch(err) {
         errors['err'] = err.message
@@ -85,5 +82,5 @@ module.exports = {
     getAll,
     getCareerById,
     deleteCareerById,
-    editCareerById
+    editCareerById,
 }

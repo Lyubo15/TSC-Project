@@ -2,8 +2,9 @@
   <section class="career-details-content">
     <article>
       <h1 class="career-details-title">Your Career</h1>
-      <button class="delete-btn" type="submit" (click)="deleteCareer(job._id)" *ngIf="isUserAnAdmin | async">Delete</button>
-      <button *ngIf="isUserAnAdmin | async" [routerLink]="'/career/edit/' + job_id">Edit</button>
+      <button class="delete-btn" type="submit" (click)="deleteCareer(job._id)"
+        *ngIf="isUserAnAdmin | async">Delete</button>
+      <button *ngIf="isUserAnAdmin | async" [routerLink]="'/career/edit/' + job._id">Edit</button>
     </article>
 
     <article class="career-details-content-img">
@@ -14,10 +15,6 @@
   </section>
 
   <section>
-    <article>
-      <h2 class="job-title">{{job.title}}</h2>
-
-      <p class="job-description">{{job.description}}</p>
-    </article>
+    <app-job-article></app-job-article>
   </section>
 </main>

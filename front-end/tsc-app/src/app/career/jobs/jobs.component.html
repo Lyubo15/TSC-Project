@@ -6,16 +6,15 @@
         alt="job">
       <h2 class="job-vacancies-item-title">{{job.title}}</h2>
       <button class="job-vacancies-items-view-btn" [routerLink]="'/career/details/' + job._id">View</button>
-      <button class="job-vacancies-items-apply-btn">Apply</button>
+      <button class="job-vacancies-items-apply-btn" (click)="handleApply(job._id)">Apply</button>
     </li>
   </ul>
 
 
   <div *ngIf="!jobs">
-    Loading...
+    <app-loader [loading]="loading"></app-loader>
   </div>
-</article>
 
-<article *ngIf="jobs.length === 0">
-  <h1 class="no-jobs-offers">No Jobs offers!</h1>
+  <h1 *ngIf="!jobs">Jobs offers!</h1>
+
 </article>

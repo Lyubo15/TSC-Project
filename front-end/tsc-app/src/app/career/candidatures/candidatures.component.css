@@ -1,0 +1,93 @@
+.career-content {
+  display: flex;
+}
+
+.career-content-img ul {
+  display: flex;
+  list-style: none;
+}
+
+.career-content-img ul li img {
+  width: 100%;
+}
+
+.candidatures-title {
+  font-size: 50px;
+  text-align: center;
+}
+
+.candidature-user-first-name,
+.candidature-user-last-name,
+.candidature-career-title {
+    word-break: break-word;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.no-candidatures {
+    color: black;
+    font-size: 40px;
+    text-align: center;
+}
+
+@media all and (max-width: 800px) {
+  .career-content {
+    flex-direction: column;
+  }
+}
+
+@media all and (max-width: 500px) {
+  .career-content-img ul {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media all and (max-width: 400px) {
+  .candidatures-title {
+    font-size: 30px;
+  }
+}
+
+.candidatures-items ul li {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 10px;
+}
+
+.candidatures-items ul li img {
+  width: 10%;
+}
+
+.candidatures-items ul li button {
+  border-radius: 20px;
+  padding: 10px 40px;
+  border: none;
+  font-weight: 600;
+  background: lightblue;
+}
+
+.candidatures-items ul li button:hover {
+  cursor: pointer;
+}
+
+ul {
+  padding: 0%;
+  text-align: center;
+}
+
+@media all and (max-width: 750px) {
+  .candidatures-items ul li {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .candidatures-items-view-btn {
+    margin-bottom: 5px;
+  }
+
+  img {
+    margin: 0px auto;
+  }
+}

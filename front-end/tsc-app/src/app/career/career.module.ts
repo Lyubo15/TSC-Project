@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { JobVacanciesComponent } from './job-vacancies/job-vacancies.component';
 import { JobsComponent } from './jobs/jobs.component';
 import { RouterModule } from '@angular/router';
@@ -10,19 +9,36 @@ import { SharedModule } from '../shared/shared.module'
 import { CareerService } from './career.service';
 import { CoreModule } from '../core/core.module';
 import { DetailsCareerComponent } from './details-career/details-career.component';
- 
+import { EditCareerComponent } from './edit-career/edit-career.component';
+import { ApplyCareerComponent } from './apply-career/apply-career.component';
+import { JobArticleComponent } from './details-career/job-article/job-article.component';
+import { CommonModule } from '@angular/common';
+import { CandidaturesComponent } from './candidatures/candidatures.component';
+import { DetailsCandidatureComponent } from './details-candidature/details-candidature.component';
+
 
 @NgModule({
-  declarations: [JobVacanciesComponent, JobsComponent, CreateCareerComponent, DetailsCareerComponent],
+  declarations: [
+    JobVacanciesComponent,
+    JobsComponent,
+    CreateCareerComponent,
+    DetailsCareerComponent,
+    EditCareerComponent,
+    ApplyCareerComponent,
+    JobArticleComponent,
+    CandidaturesComponent,
+    DetailsCandidatureComponent,
+  ],
   imports: [
     CommonModule,
     CoreModule,
+    FormsModule,
+    SharedModule,
     RouterModule,
     CareerRoutingModule,
-    FormsModule,
     ReactiveFormsModule,
-    SharedModule
   ],
+  exports: [JobsComponent],
   providers: [CareerService]
 })
 export class CareerModule { }

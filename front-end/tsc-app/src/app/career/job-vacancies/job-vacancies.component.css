@@ -5,6 +5,7 @@
 .career-content-img ul {
   display: flex;
   list-style: none;
+  justify-content: space-between;
 }
 
 .career-content-img ul li img {
@@ -30,7 +31,7 @@
   text-align: center;
 }
 
-.create-career-btn {
+.get-all-candidatures-btn, .create-career-btn {
   padding: 10px 20px;
   border-radius: 15px;
   background: lightgreen;
@@ -40,13 +41,16 @@
   color: black;
 }
 
-.create-career-btn:hover {
+.create-career-btn, .get-all-candidatures-btn:hover {
   cursor: pointer;
+}
+
+.get-all-candidatures {
+  margin-top: 25px;
 }
 
 @media all and (max-width: 800px) {
   .career-content {
-    display: flex;
     flex-direction: column;
   }
 }

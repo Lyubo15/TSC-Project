@@ -1,0 +1,37 @@
+<main>
+    <article class="candidature-contet">
+        <h1 class="candidature-contet-title">Candidature for:</h1>
+        <h2>{{candidature.career.title}}</h2>
+    </article>
+
+    <section class="candidature-info">
+        <article class="candidature-user-info">
+            <h2>Candidate info:</h2>
+            <h3>
+                {{candidature.user.firstName}}
+            </h3>
+
+            <h3>
+                {{candidature.user.lastName}}
+            </h3>
+
+            <h3>
+                {{candidature.user.email}}
+            </h3>
+
+            <h3>
+                {{candidature.user.tel}}
+            </h3>
+        </article>
+
+        <article class="candidature-aboutYou">
+            <h2>More about candidate:</h2>
+            <p>{{candidature.aboutYou}}</p>
+        </article>
+
+        <article class="candidature-career-info">
+            <h2>Job description:</h2>
+            <p>{{candidature.career.description}}</p>
+        </article>
+    </section>
+</main>

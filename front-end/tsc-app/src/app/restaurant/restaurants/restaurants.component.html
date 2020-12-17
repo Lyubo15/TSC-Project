@@ -1,0 +1,30 @@
+<main *ngIf="restaurants" class="restaurant-items">
+
+  <h1 class="restaurants-title">Restaurants</h1>
+  <a *ngIf="isUserAnAdmin | async" routerLink='/restaurant/create'>Create</a>
+
+
+  <ul>
+    <li *ngFor="let restaurant of restaurants">
+      <article class="restaurant-items-image">
+        <img src="{{restaurant.fileUrl}}" alt="restaurant">
+      </article>
+
+      <article class="restaurant-items-content">
+        <h2 class="restaurant-item-name">{{restaurant.name}}</h2>
+        <h2 class="restaurant-item-address">{{restaurant.address}}</h2>
+      </article>
+
+      <button *ngIf="isUserAnAdmin | async" (click)="deleteRestaurant(restaurant._id)">Delete</button>
+      <button *ngIf="isUserAnAdmin | async" [routerLink]="'/restaurant/edit/' + restaurant._id">Edit</button>
+    </li>
+  </ul>
+
+
+  <div *ngIf="!restaurants">
+    <app-loader [loading]="loading"></app-loader>
+  </div>
+
+  <h1 *ngIf="!restaurants">No Restaurants</h1>
+
+</main>

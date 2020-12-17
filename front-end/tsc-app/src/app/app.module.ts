@@ -12,6 +12,7 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { UserModule } from './user/user.module';
 import { CareerModule } from './career/career.module';
+import { RestaurantModule } from './restaurant/restaurant.module';
 
 
 @NgModule({
@@ -27,6 +28,7 @@ import { CareerModule } from './career/career.module';
     SharedModule,
     UserModule,
     CareerModule,
+    RestaurantModule,
   ],
   providers: [],
   bootstrap: [

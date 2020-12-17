@@ -1,0 +1,61 @@
+<main>
+    <article>
+      <img src="https://image.freepik.com/free-photo/luxury-tableware-beautiful-table-setting-restaurant_73492-239.jpg" alt="restourant">
+    </article>
+  
+    <article>
+      <form class="form-wrapper" #form="ngForm" class="create-restourant" (ngSubmit)="submitFormHandler(form.value)">
+  
+        <fieldset>
+          <h2>Create Restourant</h2>
+  
+          <!-- name -->
+
+          <p class="field field-icon">
+            <label for="name">Name</label>
+            <input #restourantName="ngModel" type="text" name="name" id="name" ngModel required maxlength="30">
+          </p>
+  
+          <p *ngIf="restourantName.touched && restourantName.errors?.required" class="error">
+            Name is required!
+          </p>
+          <p *ngIf="restourantName.touched && restourantName.errors?.maxlength" class="error">
+            Name can not be at more than 30 characters!
+          </p>
+
+          <!-- address -->
+
+          <p class="field field-icon">
+            <label for="address">Address</label>
+            <input #restourantAddress="ngModel" type="textarea" name="address" id="address" ngModel required>
+          </p>
+
+          <p *ngIf="restourantAddress.touched && restourantAddress.errors?.required" class="error">
+            Address is required!
+          </p>
+
+          <!-- image -->
+
+          <p class="field field-icon">
+              <label class="custom-file-upload" for="image">Choose File
+                <input #restourantImage="ngModel" 
+                (change)="onImagePicked($event)" placeholder="Upload Image"  name="image" id="image" type="file" ngModel required/>  
+              </label>
+          </p>
+
+          <p *ngIf="restourantImage.touched && restourantImage.errors?.required" class="error">
+            Image is required!
+          </p>
+
+          <div *ngFor="let error of errorMessage | keyvalue">
+            <p class="error">{{error.key}}:{{error.value}}</p>
+          </div>
+  
+          <button class="create-restourant-btn" [disabled]="loading || form.invalid">Create</button>
+  
+        </fieldset>
+      </form>
+      <app-loader [loading]="loading"></app-loader>
+    </article>
+  </main>
+  

@@ -83,8 +83,8 @@ export class AuthService {
 
     logout() {
         this._user.next(null);
-        localStorage.removeItem('userData');
         this.router.navigate(['/']);
+        localStorage.removeItem('userData');
     }
 
     authentication(token: string, rememberMe: boolean) {

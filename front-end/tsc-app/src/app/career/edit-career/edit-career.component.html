@@ -27,9 +27,9 @@
             <input #careerDescription="ngModel" type="textarea" name="description" id="description" ngModel>
           </p>
 
-          <p *ngIf="errorMessage" class="error">
-            {{errorMessage}}
-          </p>
+          <div *ngFor="let error of errorMessage | keyvalue">
+            <p class="error">{{error.key}}:{{error.value}}</p>
+          </div>
   
           <button class="create-career-btn" [disabled]="loading || form.invalid">Edit</button>
   

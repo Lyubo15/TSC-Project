@@ -17,7 +17,7 @@ export class EditCareerComponent {
     private careerService: CareerService,
     private activatedRoute: ActivatedRoute,
     private router: Router) {
-      
+
     this.errorMessage = '';
   }
 
@@ -31,7 +31,7 @@ export class EditCareerComponent {
         this.router.navigate([`/career/details/${id}`]);
       },
       error: (err: HttpErrorResponse) => {
-        this.errorMessage = err.error.message;
+        this.errorMessage = err.error.error;
         this.loading = false;
       }
     });

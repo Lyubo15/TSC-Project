@@ -60,6 +60,11 @@ const verifyUser = async (req, res) => {
     }
 }
 
+const isUserExists = async (id) => {
+    const user = await User.findById(id);
+    return user === null ? false : true;
+}
+
 const getCurrentUser = async (req, res) => {
     const token = req.headers['x-access-token']
     return jwt.verify(token, process.env.PRIVATE_KEY,(err, user) => {
@@ -84,5 +89,6 @@ module.exports = {
     saveUser,
     verifyUser,
     getUserById,
-    getCurrentUser
+    getCurrentUser,
+    isUserExists
 };

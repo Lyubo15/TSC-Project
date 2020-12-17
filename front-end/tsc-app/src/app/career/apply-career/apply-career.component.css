@@ -18,7 +18,6 @@ article img {
   border-top-left-radius: 15px;
   border-bottom-left-radius: 15px;
   width: calc(90vw - 425px);
-  height: 85vh;
 }
 
 .form-wrapper {

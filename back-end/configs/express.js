@@ -6,9 +6,12 @@ module.exports = (app) => {
 
     // Body Pareser
     const jsonParser = bodyParser.json()
+   
+    app.use(express.json({limit: '50mb'}));
 
     app.use(jsonParser)
     app.use(bodyParser.urlencoded({
+        limit: '50mb',
         extended: true
     }))
 

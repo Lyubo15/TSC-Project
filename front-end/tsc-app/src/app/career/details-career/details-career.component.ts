@@ -31,6 +31,7 @@ export class DetailsCareerComponent implements OnInit {
   }
 
   deleteCareer(id: string) {
+    this.loading = true;
     this.careerService.deleteCareerById(id).subscribe(() => {
       this.loading = false;
       this.router.navigate(['/career']);

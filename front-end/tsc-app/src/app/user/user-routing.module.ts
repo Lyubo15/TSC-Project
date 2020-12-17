@@ -8,18 +8,18 @@ const routes: Routes = [
     {
         path: 'signin',
         component: SigninComponent,
-        // canActivate: [LoggedGuard],
-        // data: {
-        //     isLogged: false
-        // }
+        canActivate: [LoggedGuard],
+        data: {
+            isLogged: false
+        }
     },
     {
         path: 'register',
         component: RegisterComponent,
-        // canActivate: [LoggedGuard],
-        // data: {
-        //     isLogged: false
-        // }
+        canActivate: [LoggedGuard],
+        data: {
+            isLogged: false
+        }
     }
 ];
 

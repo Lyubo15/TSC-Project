@@ -1,29 +1,25 @@
 const { candidatureErrorHandler } = require('../validations/candidature')
-const Career = require('../models/career')
-const User = require('../models/user')
+const { isCareerExist } = require('../controllers/career')
+const { isUserExists } = require('../controllers/user')
+
 const Candidature = require('../models/candidature')
 
 const applyForCareer = async (req, res) => {
-    const careerId = req.params.id;
     const errors = candidatureErrorHandler(req)
-    const { aboutYou, userId } = req.body
-
-    if (await Career.findById(careerId) === null) {
-        return res.status(404).send({
-            'error': `Can not find career with id: ${id}`
-        })
-    }
-
-    if (await User.findById(userId) === null) {
-        return res.status(404).send({
-            'error': `Can not find user with id: ${id}`
-        })
-    }
 
     if (JSON.stringify(errors) !== JSON.stringify({})) {
-        return res.status(400).send({
-            'error': errors
-        })
+        return res.status(400).send({"error": errors})
+    }
+    
+    const { aboutYou, userId } = req.body
+    const careerId = req.params.id;
+
+    if (!(await isCareerExist(careerId))) {
+        return returnResponseWithSimpleMessage(res, 404, `Can not find career with id: ${id}`)
+    }
+
+    if (!(await isUserExists(userId))) {
+        return returnResponseWithSimpleMessage(res, 404, `Can not find user with id: ${id}`)
     }
 
     try {
@@ -32,9 +28,7 @@ const applyForCareer = async (req, res) => {
         return res.status(201).send({ 'candidature': candidatureObject })
     } catch (err) {
         errors['error'] = err
-        return res.status(400).send({
-            'error': errors
-        })
+        return res.status(400).send({"error": errors})
     }
 }
 
@@ -47,7 +41,7 @@ const getCandidatureById = async (req, res) => {
     const id = req.params.id;
 
     if (await Candidature.findById(id) === null) {
-        return res.status(404).send({ 'error': `Can not find user with id: ${id}` })
+        return returnResponseWithSimpleMessage(res, 404, `Can not find candidature with id: ${id}`)
     }
 
     try {
@@ -58,9 +52,8 @@ const getCandidatureById = async (req, res) => {
 
         return res.status(200).send(candidature);
     } catch (err) {
-        return res.status(400).send({
-            'error': errors
-        })
+        errors['err'] = err
+        return res.status(400).send({"error": errors})
     }
 }
 
@@ -70,15 +63,16 @@ const deleteCandidatureById = async (req, res) => {
         const candidature = await Candidature.findByIdAndDelete(id)
         return res.status(200).send(candidature);
     } catch (err) {
-        return res.status(404).send({
-            'error': `Can not find candidature with id: ${id}`
-        })
+        return returnResponseWithSimpleMessage(res, 404, `Can not find candidature with id: ${id}`)
     }
 }
 
 const deleteAllCandidaturesByCareerName = async (id) => {
-    const deletedCandidatures = await Candidature.deleteMany({ 'career': id });
-    console.log(deletedCandidatures)
+    await Candidature.deleteMany({ 'career': id });
+}
+
+const returnResponseWithSimpleMessage = (res, status, send) => {
+    return res.status(status).send({'error': {"": send}})
 }
 
 module.exports = {

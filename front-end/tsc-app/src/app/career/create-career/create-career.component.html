@@ -33,10 +33,11 @@
           <p *ngIf="careerDescription.touched && careerDescription.errors?.required" class="error">
             Description is required!
           </p>
+          
   
-          <p *ngIf="errorMessage" class="error">
-            {{errorMessage}}
-          </p>
+          <div *ngFor="let error of errorMessage | keyvalue">
+            <p class="error">{{error.key}}:{{error.value}}</p>
+          </div>
   
           <button class="create-career-btn" [disabled]="loading || form.invalid">Create</button>
   

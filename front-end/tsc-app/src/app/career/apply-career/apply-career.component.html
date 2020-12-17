@@ -23,9 +23,9 @@
             Title is required!
           </p>
 
-          <p *ngIf="errorMessage" class="error">
-            {{errorMessage}}
-          </p>
+          <div *ngFor="let error of errorMessage | keyvalue">
+            <p class="error">{{error.key}}:{{error.value}}</p>
+          </div>
 
           <button class="apply-btn" [disabled]="loading || form.invalid">Apply</button>
 

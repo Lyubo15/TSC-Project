@@ -14,7 +14,6 @@ article img {
   border-top-left-radius: 15px;
   border-bottom-left-radius: 15px;
   width: calc(100vw - 425px);
-  height: 85vh;
 }
 
 .form-wrapper {
@@ -65,5 +64,27 @@ main>article:nth-child(2)>form>fieldset {
 @media all and (max-width: 340px) {
   .form-wrapper {
     padding: 28.3px 21px;
+  }
+}
+
+@media all and (max-width: 880px) {
+  main {
+    display: flex;
+    flex-direction: column;
+  }
+
+  main>article:nth-child(2)>form>fieldset {
+    padding: 26px 56.3px;
+    border: none;
+  }
+
+  article img {
+    border-radius: 15px;
+  }
+}
+
+@media all and (max-width: 650px) {
+  article img {
+    width: 60%;
   }
 }

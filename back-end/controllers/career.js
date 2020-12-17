@@ -6,19 +6,19 @@ const createCareer = async (req, res) => {
     const errors = await careerErrorHandler(req)
 
     if (JSON.stringify(errors) !== JSON.stringify({})) {
-        return res.status(400).send(errors)
+        return res.status(400).send({"error": errors})
     }
 
     const { title, description } = req.body;
 
-    career = new Career({ title, description });
+    const career = new Career({ title, description });
 
     try {
         const careerObject = await career.save();
         return res.status(201).send({'career': careerObject})
     } catch (err) {
         errors['error'] = err
-        return res.status(400).send(errors)
+        return res.status(400).send({"error": errors})
     }
 }
 
@@ -34,8 +34,13 @@ const getCareerById = async (req, res) => {
         const career = await Career.findById(id)
         return res.status(200).send(career);
     } catch(err) {
-        return res.status(404).send({'message': `Can not find career with id: ${id}`})
+        return returnResponseWithSimpleMessage(res, 400, `Can not find career with id: ${id}`)
     }
+}
+
+const isCareerExist = async (id) => {
+    const career = await Career.findById(id)
+    return career === null ? false : true;
 }
 
 const deleteCareerById = async (req, res) => {
@@ -46,7 +51,7 @@ const deleteCareerById = async (req, res) => {
         deleteAllCandidaturesByCareerName(career._id);
         return res.status(200).send(career);
     } catch(err) {
-        return res.status(404).send({'message': `Can not find career with id: ${id}`})
+        return returnResponseWithSimpleMessage(res, 400, `Can not find career with id: ${id}`)
     }
 }
 
@@ -55,11 +60,11 @@ const editCareerById = async (req, res) => {
     const errors = await careerEditErrorHandler(req)
 
     if(await Career.findById(id) === null) {
-        return res.status(404).send({'message': `Can not find career with id: ${id}`})
+        return returnResponseWithSimpleMessage(res, 400, `Can not find career with id: ${id}`)
     }
 
     if (JSON.stringify(errors) !== JSON.stringify({})) {
-        return res.status(400).send(errors)
+        return res.status(400).send({"error": errors})
     }
 
     const {title, description} = req.body
@@ -73,8 +78,12 @@ const editCareerById = async (req, res) => {
         return res.status(200).send(career);
     } catch(err) {
         errors['err'] = err.message
-        return res.status(400).send(errors)
+        return res.status(400).send({"error": errors})
     }
+}
+
+const returnResponseWithSimpleMessage = (res, status, send) => {
+    return res.status(status).send({'error': {"": send}})
 }
 
 module.exports = {
@@ -83,4 +92,5 @@ module.exports = {
     getCareerById,
     deleteCareerById,
     editCareerById,
+    isCareerExist
 }

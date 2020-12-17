@@ -2,7 +2,8 @@ main {
   display: flex;
   font-family: 'Helvetica', sans-serif;
   vertical-align: top;
-  background: rgb(237, 183, 125);
+  background: white;
+  text-align: center;
 }
 
 article {
@@ -15,30 +16,26 @@ article img {
   width: calc(100vw - 425px);
 }
 
+fieldset {
+  margin: 0%;
+  padding: 0%;
+}
+
 .form-wrapper {
+  background: #111111;
   color: black;
   text-align: center;
   height: 73vh;
   padding: 58.3px 51px;
 }
 
-.create-account-btn {
+.create-restourant-btn {
   padding: 10px 20px;
   border-radius: 13px;
 }
 
-.login-btn:hover{
+.create-restourant-btn:hover {
   cursor: pointer;
-}
-
-.error {
-  color: red;
-}
-
-.create-account-btn a {
-  text-decoration: none;
-  color: black;
-  font-size: 20px;
 }
 
 .text-center a {
@@ -51,6 +48,10 @@ article img {
   font-size: 15px;
 }
 
+.error {
+  color: red;
+}
+
 .form-wrapper label,
 input {
   background: transparent;
@@ -58,33 +59,33 @@ input {
   border: none;
   border-bottom: 1px solid black;
   color: black;
-  outline: none;
 }
 
 main>article:nth-child(2)>form>fieldset {
-  padding: 0px 40px;
-  height: 73vh;
+  padding: 26px 76.3px;
   border: none;
 }
 
-@media all and (max-width: 340px) {
-  .form-wrapper {
-    padding: 28.3px 21px;
-  }
+input[type="file"] {
+  display: none;
 }
 
-@media all and (max-height: 750px) {
-  .form-wrapper[_ngcontent-yrg-c53] {
-    padding: 0.3px 0px;
-  }
+.custom-file-upload {
+  border: 1px solid #ccc;
+  padding: 10px 50px;
+  cursor: pointer;
+  border-radius: 9px;
 }
 
-@media all and (max-width: 900px) {
+@media all and (max-width: 880px) {
   main {
-    text-align: center;
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
+  }
+
+  .custom-file-upload {
+    padding: 10px 30px;
+    font-size: 12px;
   }
 
   main>article:nth-child(2)>form>fieldset {

@@ -26,7 +26,7 @@ export class CreateCareerComponent {
         this.router.navigate(['/career']);
       },
       error: (err: HttpErrorResponse) => {
-        this.errorMessage = err.error.message;
+        this.errorMessage = err.error.error;
         this.loading = false;
       }
     });

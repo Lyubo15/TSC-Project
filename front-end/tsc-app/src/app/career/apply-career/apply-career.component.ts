@@ -28,6 +28,7 @@ export class ApplyCareerComponent implements OnInit{
   }
 
   submitFormHandler(formValue: { 'aboutYou': string }) {
+    this.loading = true;
     this.careerService.applyForCareer(formValue, this.jobId, this.userId).subscribe({
       next: () => {
         this.loading = false;

@@ -2,23 +2,23 @@
   <article>
     <img
       src="https://img.freepik.com/free-photo/empty-glasses-set-restaurant_113873-37.jpg?size=626&ext=jpg&ga=GA1.2.61417944.1607625055"
-      alt="restourant">
+      alt="restaurant">
   </article>
 
   <article>
-    <form class="form-wrapper" #form="ngForm" class="create-restourant" (ngSubmit)="submitFormHandler(form.value)">
+    <form class="form-wrapper" #form="ngForm" class="create-restaurant" (ngSubmit)="submitFormHandler(form.value)">
 
       <fieldset>
-        <h2>Edit Restourant</h2>
+        <h2>Edit Restaurant</h2>
 
         <!-- name -->
 
         <p class="field field-icon">
           <label for="name">Name</label>
-          <input #restourantName="ngModel" type="text" name="name" id="name" ngModel maxlength="30">
+          <input #restaurantName="ngModel" type="text" name="name" id="name" ngModel maxlength="30">
         </p>
 
-        <p *ngIf="restourantName.touched && restourantName.errors?.maxlength" class="error">
+        <p *ngIf="restaurantName.touched && restaurantName.errors?.maxlength" class="error">
           Name can not be at more than 30 characters!
         </p>
 
@@ -26,14 +26,14 @@
 
         <p class="field field-icon">
           <label for="address">Address</label>
-          <input #restourantAddress="ngModel" type="textarea" name="address" id="address" ngModel>
+          <input #restaurantAddress="ngModel" type="textarea" name="address" id="address" ngModel>
         </p>
 
         <!-- image -->
 
         <p class="field field-icon">
           <label class="custom-file-upload" for="image">Choose File
-            <input #restourantImage="ngModel" (change)="onImagePicked($event)" placeholder="Upload Image" name="image"
+            <input #restaurantAddress="ngModel" (change)="onImagePicked($event)" placeholder="Upload Image" name="image"
               id="image" type="file" ngModel />
           </label>
         </p>
@@ -42,7 +42,7 @@
           <p class="error">{{error.key}}:{{error.value}}</p>
         </div>
 
-        <button class="create-restourant-btn" [disabled]="loading || form.invalid">Edit</button>
+        <button class="create-restaurant-btn" [disabled]="loading || form.invalid">Edit</button>
 
       </fieldset>
     </form>

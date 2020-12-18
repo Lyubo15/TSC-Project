@@ -13,7 +13,7 @@
 
           <p class="field field-icon">
             <label for="title">Title</label>
-            <input #careerTitle="ngModel" type="text" name="title" id="title" ngModel maxlength="50">
+            <input #careerTitle="ngModel" type="text" name="title" id="title" value="{{career.title}}"  [(ngModel)]="career.title" maxlength="50">
           </p>
   
           <p *ngIf="careerTitle.touched && careerTitle.errors?.maxlength" class="error">
@@ -24,7 +24,7 @@
 
           <p class="field field-icon">
             <label for="description">Description</label>
-            <input #careerDescription="ngModel" type="textarea" name="description" id="description" ngModel>
+            <input #careerDescription="ngModel" type="textarea" name="description" id="description" [(ngModel)]="career.description">
           </p>
 
           <div *ngFor="let error of errorMessage | keyvalue">
@@ -38,4 +38,3 @@
       <app-loader [loading]="loading"></app-loader>
     </article>
   </main>
-  

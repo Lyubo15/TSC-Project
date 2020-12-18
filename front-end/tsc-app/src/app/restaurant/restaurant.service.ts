@@ -40,6 +40,16 @@ export class RestaurantService {
         });
     }
 
+    getRestaurantById(id: string) {
+        const headers = new HttpHeaders({
+            'Content-Type': 'application/json',
+        });
+
+        return this.http.get(`${environment.API_ENDPOINT}/api/restaurant/${id}`, {
+            headers: headers
+        });
+    }
+
     deleteRestaurant(id: string) {
         const headers = new HttpHeaders({
             'Content-Type': 'application/json',

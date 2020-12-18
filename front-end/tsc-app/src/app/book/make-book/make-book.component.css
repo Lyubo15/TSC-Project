@@ -4,7 +4,7 @@ main {
     vertical-align: top;
     background: white;
     text-align: center;
-  }
+}
   
   article {
     margin: 5px 5px;
@@ -13,12 +13,7 @@ main {
   article img {
     border-top-left-radius: 15px;
     border-bottom-left-radius: 15px;
-    width: calc(100vw - 425px);
-  }
-  
-  fieldset {
-    margin: 0%;
-    padding: 0%;
+    width: calc(95vw - 425px);
   }
   
   .form-wrapper {
@@ -29,12 +24,12 @@ main {
     padding: 58.3px 51px;
   }
   
-  .create-restaurant-btn {
+  .create-book-btn {
     padding: 10px 20px;
     border-radius: 13px;
   }
   
-  .create-restaurant-btn:hover {
+  .create-book-btn:hover {
     cursor: pointer;
   }
   
@@ -66,41 +61,28 @@ main {
     border: none;
   }
   
-  input[type="file"] {
-    display: none;
+  @media all and (max-width: 340px) {
+    .form-wrapper {
+      padding: 28.3px 21px;
+    }
   }
   
-  .custom-file-upload {
-    border: 1px solid #ccc;
-    padding: 10px 50px;
-    cursor: pointer;
-    border-radius: 9px;
-  }
-  
-  @media all and (max-width: 880px) {
+  @media all and (max-width: 950px) {
     main {
       display: flex;
       flex-direction: column;
     }
   
-    .custom-file-upload {
-      padding: 10px 30px;
-      font-size: 12px;
-    }
-  
-    main>article:nth-child(2)>form>fieldset {
-      padding: 26px 56.3px;
-      border: none;
-    }
-  
     article img {
-      border-radius: 15px;
+      width: calc(100vw - 205px);
+      height: 45vh;
     }
   }
   
-  @media all and (max-width: 650px) {
+  @media all and (max-width: 350px) {
     article img {
-      width: 60%;
+      width: calc(100vw - 80px);
+      height: 45vh;
     }
   }
   

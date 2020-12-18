@@ -44,9 +44,6 @@ const editRestaurantById = async (req, res) => {
     if(await isRestarantAddressAlreadyExists(address, res)){ return res }
 
     const fileName = image && getFileName(image);
-
-    console.log(fileName);
-
     const urlResponse = file && await uploads(file, fileName);
 
     let update = {};
@@ -85,6 +82,14 @@ const deleteRestaurantById = async (req, res) => {
     }
 }
 
+const getRestaurantByName = async (name) => {
+    try {
+        return await Restaurant.findOne({name})
+    } catch(err) {
+        return null;
+    }
+}
+
 const getFileName = (image) => {
     if(image.includes('http')){
         return image.slice(image.lastIndexOf('/') + 1, image.lastIndexOf('.'));
@@ -112,9 +117,16 @@ const returnResponseWithSimpleMessage = (res, status, send) => {
    return res.status(status).send({'error': {"": send}})
 }
 
+const isRestaurantExist = async (name) => {
+    const restaurant = await Restaurant.findOne({name})
+    return restaurant === null ? false : true;
+}
+
 module.exports = {
     createRestaurant,
     getAllRestaurants,
     deleteRestaurantById,
-    editRestaurantById
+    editRestaurantById,
+    getRestaurantByName,
+    isRestaurantExist
 }

@@ -57,24 +57,14 @@ const deleteCareerById = async (req, res) => {
 
 const editCareerById = async (req, res) => {
     const id = req.params.id;
-    const errors = await careerEditErrorHandler(req)
-
-    if(await Career.findById(id) === null) {
-        return returnResponseWithSimpleMessage(res, 400, `Can not find career with id: ${id}`)
-    }
+    const errors = await careerEditErrorHandler(req, id)
 
     if (JSON.stringify(errors) !== JSON.stringify({})) {
         return res.status(400).send({"error": errors})
     }
 
-    const {title, description} = req.body
-    let update = {};
-
-    title && (update.title = title)
-    description && (update.description = description)
-
     try{
-        const career = await Career.findByIdAndUpdate(id, update, {new: true, runValidators: true});
+        const career = await Career.findByIdAndUpdate(id, req.body, {runValidators: true});
         return res.status(200).send(career);
     } catch(err) {
         errors['err'] = err.message

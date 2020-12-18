@@ -1,0 +1,127 @@
+<main>
+  <article>
+    <img
+      src="https://img.freepik.com/free-photo/rectangular-plate-with-word-reserved-stand-table-restaurant_128384-935.jpg?size=626&ext=jpg&ga=GA1.2.61417944.1607625055"
+      alt="book">
+  </article>
+
+  <article>
+    <form class="form-wrapper" #form="ngForm" class="book" (ngSubmit)="submitFormHandler(form.value)">
+
+      <fieldset>
+        <h2>Make a book</h2>
+
+        <!-- countOfPeople -->
+
+        <p class="field field-icon">
+
+          <mat-form-field appearance="fill">
+            <mat-label>How many people?</mat-label>
+            <select #bookCountOfPeople="ngModel" name="count" id="count" matNativeControl ngModel required>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+              <option value="11">11</option>
+              <option value="12">12</option>
+              <option value="13">13</option>
+              <option value="14">14</option>
+              <option value="15">15</option>
+            </select>
+          </mat-form-field>
+        </p>
+
+        <p *ngIf="bookCountOfPeople.touched && bookCountOfPeople.errors?.required" class="error">
+          Count of people is required!
+        </p>
+
+        <!-- date -->
+
+        <mat-form-field appearance="fill">
+          <mat-label for="date">Choose a date</mat-label>
+          <input matInput [matDatepicker]="picker" #bookDate='ngModel' name="date" id="date" matInput [min]="minDate"
+            [max]="maxDate" ngModel required>
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+
+        <p *ngIf="bookDate.touched && bookDate.errors?.required" class="error">
+          Date is required!
+        </p>
+
+        <!-- hour -->
+
+        <p class="field field-icon">
+          <mat-form-field appearance="fill">
+            <mat-label>Choose an hour</mat-label>
+            <select #bookHour="ngModel" name="hour" id="hour" matNativeControl ngModel required>
+              <option value="10:00">10:00</option>
+              <option value="10:30">10:30</option>
+              <option value="11:00">11:00</option>
+              <option value="11:30">11:30</option>
+              <option value="12:00">12:00</option>
+              <option value="12:30">12:30</option>
+              <option value="13:00">13:00</option>
+              <option value="13:30">13:30</option>
+              <option value="14:00">14:00</option>
+              <option value="14:30">14:30</option>
+              <option value="15:00">15:00</option>
+              <option value="15:30">15:30</option>
+              <option value="16:00">16:00</option>
+              <option value="16:30">16:30</option>
+              <option value="17:00">17:00</option>
+              <option value="17:30">17:30</option>
+              <option value="18:00">18:00</option>
+              <option value="18:30">18:30</option>
+              <option value="19:00">19:00</option>
+              <option value="19:30">19:30</option>
+              <option value="20:00">20:00</option>
+              <option value="20:30">20:30</option>
+              <option value="21:00">21:00</option>
+              <option value="21:30">21:30</option>
+              <option value="22:00">22:00</option>
+              <option value="22:30">22:30</option>
+            </select>
+          </mat-form-field>
+        </p>
+
+
+        <p *ngIf="bookHour.touched && bookHour.errors?.required" class="error">
+          Hour is required!
+        </p>
+
+        <!-- restourant -->
+
+        <p class="field field-icon">
+          <mat-form-field appearance="fill">
+            <mat-label>Restaurants</mat-label>
+            <mat-select #bookRestaurant="ngModel" name="restaurant" id="restaurant" matNativeControl ngModel required>
+              <mat-option *ngFor="let restaurant of restaurants" [value]="restaurant.name">
+                {{restaurant.name}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </p>
+
+        <p *ngIf="bookHour.touched && bookHour.errors?.required" class="error">
+          Restaurant is required!
+        </p>
+
+
+        <div *ngFor="let error of errorMessage | keyvalue">
+          <p class="error">{{error.key}}:{{error.value}}</p>
+        </div>
+
+        <button class="create-book-btn" [disabled]="loading || form.invalid">Book</button>
+
+      </fieldset>
+    </form>
+    <app-loader [loading]="loading"></app-loader>
+  </article>
+</main>

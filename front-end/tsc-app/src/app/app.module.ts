@@ -13,6 +13,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { UserModule } from './user/user.module';
 import { CareerModule } from './career/career.module';
 import { RestaurantModule } from './restaurant/restaurant.module';
+import { BookModule } from './book/book.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from './material/material.module';
 
 
 @NgModule({
@@ -22,6 +25,8 @@ import { RestaurantModule } from './restaurant/restaurant.module';
   imports: [
     CoreModule,
     BrowserModule,
+    BrowserAnimationsModule,
+    MaterialModule,
     HttpClientModule,
     AppRoutingModule,
     HomeModule,
@@ -29,6 +34,7 @@ import { RestaurantModule } from './restaurant/restaurant.module';
     UserModule,
     CareerModule,
     RestaurantModule,
+    BookModule,
   ],
   providers: [],
   bootstrap: [

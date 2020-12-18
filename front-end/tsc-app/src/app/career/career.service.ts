@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Router } from '@angular/router';
 import { environment } from '../../environments/environment'
 import { IJob } from './interfaces/job';
 import { Observable } from 'rxjs';
@@ -8,7 +7,7 @@ import { Observable } from 'rxjs';
 @Injectable()
 export class CareerService {
 
-    constructor(private http: HttpClient, private router: Router) {
+    constructor(private http: HttpClient) {
     }
 
     createCareer(formData: IJob) {

@@ -16,6 +16,8 @@ import { RestaurantModule } from './restaurant/restaurant.module';
 import { BookModule } from './book/book.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
+import { MenuModule } from './menu/menu.module';
+import { ProductModule } from './product/product.module';
 
 
 @NgModule({
@@ -35,6 +37,8 @@ import { MaterialModule } from './material/material.module';
     CareerModule,
     RestaurantModule,
     BookModule,
+    MenuModule,
+    ProductModule
   ],
   providers: [],
   bootstrap: [

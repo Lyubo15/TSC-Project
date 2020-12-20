@@ -25,9 +25,7 @@ export class EditCareerComponent implements OnInit{
   }
 
   ngOnInit() {
-    debugger
     this.careerService.getCareerById(this.id).subscribe((career) => {
-      debugger
       this.career = career;
     })
   }

@@ -39,7 +39,7 @@ const getCareerById = async (req, res) => {
 }
 
 const isCareerExist = async (id) => {
-    const career = await Career.findById(id)
+    const career = await Career.findById(id);
     return career === null ? false : true;
 }
 

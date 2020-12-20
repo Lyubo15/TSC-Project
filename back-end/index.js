@@ -12,4 +12,6 @@ require('./configs/express')(app)
 // Set Routers
 require('./dispatcher')(app)
 
+require('./schedule/book')
+
 app.listen(process.env.PORT, console.log(`Listening on port ${process.env.PORT}! Now its up to you...`));

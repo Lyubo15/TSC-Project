@@ -23,6 +23,16 @@ const makeABook = async (req, res) => {
     }
 }
 
+const getAllBooks = async () => {
+    return await Book.find();
+}
+
+const deleteBookById = async (id) => {
+    await Book.findByIdAndDelete(id);
+}
+
 module.exports = {
     makeABook,
+    getAllBooks,
+    deleteBookById
 }

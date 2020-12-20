@@ -1,0 +1,89 @@
+<main>
+  <article>
+    <img src="https://image.freepik.com/free-photo/table-top-with-background_1404-1.jpg" alt="menu">
+  </article>
+
+  <article>
+    <form class="form-wrapper" #form="ngForm" class="create-product" (ngSubmit)="submitFormHandler(form.value)">
+
+      <fieldset>
+        <h2>Create Product</h2>
+
+        <!-- name -->
+
+        <p class="field field-icon">
+          <label for="name">Name</label>
+          <input #productName="ngModel" type="text" name="name" id="name" ngModel required maxlength="20">
+        </p>
+
+        <p *ngIf="productName.touched && productName.errors?.required" class="error">
+          Name is required!
+        </p>
+
+        <!-- description -->
+
+        <p class="field field-icon">
+          <label for="description">Description</label>
+          <input #productDescription="ngModel" type="text" name="description" id="description" ngModel required
+            maxlength="100">
+        </p>
+
+        <p *ngIf="productDescription.touched && productDescription.errors?.required" class="error">
+          Description is required!
+        </p>
+
+        <!-- price -->
+
+        <p class="field field-icon">
+          <label for="price">Price</label>
+          <input #productPrice="ngModel" (change)="priceHandler($event.target.value)" type="number" name="price"
+            id="price" ngModel required>
+        </p>
+
+        <p *ngIf="productPrice.touched && productPrice.errors?.required" class="error">
+          Price is required!
+        </p>
+
+        <p *ngIf="productPrice.touched && isPriceNotValid" class="error">
+          Price must be positive number!
+        </p>
+
+        <!-- count -->
+
+        <p class="field field-icon">
+          <label for="count">Count</label>
+          <input #productCount="ngModel" (change)="countHandler($event.target.value)" type="number" name="count" id="count" ngModel required>
+        </p>
+
+        <p *ngIf="productCount.touched && productCount.errors?.required" class="error">
+          Count is required!
+        </p>
+
+        <p *ngIf="productCount.touched && isCountNotValid" class="error">
+          Count must be positive number!
+        </p>
+
+        <!-- image -->
+
+        <p class="field field-icon">
+          <label class="custom-file-upload" for="image">Choose File
+            <input #productImage="ngModel" (change)="onImagePicked($event)" placeholder="Upload Image" name="image"
+              id="image" type="file" ngModel required />
+          </label>
+        </p>
+
+        <p *ngIf="productImage.touched && productImage.errors?.required" class="error">
+          Image is required!
+        </p>
+
+        <div *ngFor="let error of errorMessage | keyvalue">
+          <p class="error">{{error.key}}:{{error.value}}</p>
+        </div>
+
+        <button class="create-product-btn" [disabled]="loading || form.invalid">Create</button>
+
+      </fieldset>
+    </form>
+    <app-loader [loading]="loading"></app-loader>
+  </article>
+</main>

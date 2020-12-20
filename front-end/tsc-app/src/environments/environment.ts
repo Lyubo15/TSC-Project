@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  API_ENDPOINT: 'http://localhost:9000'
+  API_ENDPOINT: 'http://localhost:9000',
+  USER_INFO_KEY: 'userData'
 };
 
 /*

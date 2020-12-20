@@ -1,0 +1,19 @@
+<main>
+    <ul class="products">
+        <li class="product" *ngFor="let product of products">
+            <div>
+                <img src="{{product.fileUrl}}" alt="">
+                <h1>{{product.name}}</h1>
+                <h1>{{product.price}}</h1>
+            </div>
+        </li>
+      </ul>
+
+      <h1 *ngIf="!products">
+          No Products
+      </h1>
+       
+    <div *ngIf="!products">
+        <app-loader [loading]="loading"></app-loader>
+      </div>
+</main>

@@ -48,7 +48,7 @@ export class AuthService {
             rememberMe: boolean,
             _token: string;
             _tokenExpirationDate: string;
-        } = JSON.parse(localStorage.getItem('userData'));
+        } = JSON.parse(localStorage.getItem(environment.USER_INFO_KEY));
 
         if (!userData) { return; }
 
@@ -84,7 +84,7 @@ export class AuthService {
     logout() {
         this._user.next(null);
         this.router.navigate(['/']);
-        localStorage.removeItem('userData');
+        localStorage.removeItem(environment.USER_INFO_KEY);
     }
 
     authentication(token: string, rememberMe: boolean) {
@@ -97,7 +97,7 @@ export class AuthService {
 
         const user = new UserAuthModel(userId, userRole, firstName, rememberMe, token, expirationDate);
         this._user.next(user);
-        localStorage.setItem('userData', JSON.stringify(user));
+        localStorage.setItem(environment.USER_INFO_KEY, JSON.stringify(user));
     }
 
     // authenticateCurrentUser(): Observable<any> {

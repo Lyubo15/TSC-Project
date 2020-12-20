@@ -35,14 +35,12 @@ export class MakeBookComponent implements OnInit {
 
   submitFormHandler(formValue: { count: number, date: Date, houe: string, restaurant: string }) {    
     this.loading = true;
-    debugger
     this.bookService.makeABook(formValue).subscribe({
       next: () => {
         this.loading = false;
         this.router.navigate(['/']);
       },
       error: (err: HttpErrorResponse) => {
-        debugger
         this.errorMessage = err.error.error;
         this.loading = false;
       }

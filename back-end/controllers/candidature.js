@@ -3,6 +3,7 @@ const { isCareerExist } = require('../controllers/career')
 const { isUserExists } = require('../controllers/user')
 
 const Candidature = require('../models/candidature')
+const Career = require('../models/career')
 
 const applyForCareer = async (req, res) => {
     const errors = candidatureErrorHandler(req)
@@ -14,7 +15,7 @@ const applyForCareer = async (req, res) => {
     const { aboutYou, userId } = req.body
     const careerId = req.params.id;
 
-    if (!(await isCareerExist(careerId))) {
+    if (await Career.findById(careerId) === null) {
         return returnResponseWithSimpleMessage(res, 404, `Can not find career with id: ${id}`)
     }
 

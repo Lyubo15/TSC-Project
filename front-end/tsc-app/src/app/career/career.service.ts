@@ -92,4 +92,14 @@ export class CareerService {
             headers: headers,
         });
     }
+
+    getCandidatureById(id: string) {
+        const headers = new HttpHeaders({
+            'Content-Type': 'application/json',
+        });
+
+        return this.http.get(`${environment.API_ENDPOINT}/api/candidature/${id}`, {
+            headers: headers,
+        });
+    }
 }

@@ -1,0 +1,32 @@
+<main class="menu-items">
+
+    <h1 class="menu-title">Menues</h1>
+    <a *ngIf="isUserAnAdmin | async" routerLink='/menu/create'>Create</a>
+  
+  
+    <ul>
+      <li *ngFor="let menu of menues">
+        <article class="menu-items-image">
+          <img src="{{menu.fileUrl}}" alt="menu">
+        </article>
+  
+        <article class="menu-items-content">
+          <h2 class="menu-item-name">{{menu.name}}</h2>
+        </article>
+  
+        <button *ngIf="isUserAnAdmin | async" (click)="deleteMenu(menu._id)">Delete</button>
+        <button *ngIf="isUserAnAdmin | async" [routerLink]="'/menu/edit/' + menu._id">Edit</button>
+        <button *ngIf="isUserAnAdmin | async" [routerLink]="'/product/create/' + menu._id">Creeate Product</button>
+        <button [routerLink]="'/menu/' + menu._id + '/products'">View</button>
+      </li>
+    </ul>
+  
+  
+    <div *ngIf="!menues">
+      <app-loader [loading]="loading"></app-loader>
+    </div>
+  
+    <h1 *ngIf="!menues">No Menues</h1>
+  
+  </main>
+  

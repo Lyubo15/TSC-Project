@@ -26,11 +26,8 @@ const bookErrorHandler = async (req) => {
 
     const hours = hour.split(":")[0];
 
-    console.log(Number(hours));
-
     if(isNaN(Number(hours))) { errors['hour'] = 'Hour must be number' }
     if(Number(hours) < 10 && Number(hours) > 23) { errors['hour'] = 'Hour is not in our work time' }
-
     
     if(!restaurant) { errors['restaurant'] = 'Restaurant is required' }
     if(!(await isRestaurantExist(restaurant))) { errors['restaurant'] = 'Restaurant does not exists' }

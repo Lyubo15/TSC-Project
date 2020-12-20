@@ -1,9 +1,8 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { map } from 'rxjs/operators';
-import { AuthService } from 'src/app/core/auth/auth.service';
 import { CareerService } from '../career.service';
+import { environment } from '../../../environments/environment'
 
 @Component({
   selector: 'app-apply-career',
@@ -24,7 +23,7 @@ export class ApplyCareerComponent implements OnInit{
   ) { }
 
   ngOnInit() {
-    this.userId = JSON.parse(localStorage.getItem('userData')).userId
+    this.userId = JSON.parse(localStorage.getItem(environment.USER_INFO_KEY)).userId
   }
 
   submitFormHandler(formValue: { 'aboutYou': string }) {

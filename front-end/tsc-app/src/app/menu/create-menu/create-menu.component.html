@@ -1,0 +1,50 @@
+<main>
+    <article>
+      <img src="https://image.freepik.com/free-vector/vector-food-menu-elements-chalk-board_1284-43470.jpg" alt="menu">
+    </article>
+  
+    <article>
+      <form class="form-wrapper" #form="ngForm" class="create-menu" (ngSubmit)="submitFormHandler(form.value)">
+  
+        <fieldset>
+          <h2>Create Menu</h2>
+  
+          <!-- name -->
+
+          <p class="field field-icon">
+            <label for="name">Name</label>
+            <input #menuName="ngModel" type="text" name="name" id="name" ngModel required maxlength="30">
+          </p>
+  
+          <p *ngIf="menuName.touched && menuName.errors?.required" class="error">
+            Name is required!
+          </p>
+          <p *ngIf="menuName.touched && menuName.errors?.maxlength" class="error">
+            Name can not be at more than 30 characters!
+          </p>
+
+          <!-- image -->
+
+          <p class="field field-icon">
+              <label class="custom-file-upload" for="image">Choose File
+                <input #menuImage="ngModel" 
+                (change)="onImagePicked($event)" placeholder="Upload Image"  name="image" id="image" type="file" ngModel required/>  
+              </label>
+          </p>
+
+          <p *ngIf="menuImage.touched && menuImage.errors?.required" class="error">
+            Image is required!
+          </p>
+
+          <div *ngFor="let error of errorMessage | keyvalue">
+            <p class="error">{{error.key}}:{{error.value}}</p>
+          </div>
+  
+          <button class="create-menu-btn" [disabled]="loading || form.invalid">Create</button>
+  
+        </fieldset>
+      </form>
+      <app-loader [loading]="loading"></app-loader>
+    </article>
+  </main>
+  

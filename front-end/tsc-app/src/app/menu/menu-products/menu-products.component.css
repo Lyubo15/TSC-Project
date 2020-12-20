@@ -1,0 +1,25 @@
+main {
+    align-items: center;
+    text-align: center;
+}
+
+.products {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0%;
+}
+
+.product {
+  list-style: none;
+  margin: 10px 60px;
+}
+
+img {
+    width: 100%;
+}
+
+@media all and (max-width: 600px) {
+  .product {
+    margin: 0px 0px;
+  }
+}

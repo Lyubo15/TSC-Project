@@ -1,50 +1,60 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { IRestourant } from './interfaces/restourant';
+import { IMenu } from './interfaces/menu';
 import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment'
 
 @Injectable()
-export class RestaurantService {
+export class MenuService {
 
     constructor(private http: HttpClient) { }
 
-    getAllRestaurants(): Observable<IRestourant[]> {
+    getAllMenus(): Observable<IMenu[]> {
         const headers = new HttpHeaders({
             'Content-Type': 'application/json',
         });
 
-        return this.http.get<IRestourant[]>(`${environment.API_ENDPOINT}/api/restaurant/all`, {
+        return this.http.get<IMenu[]>(`${environment.API_ENDPOINT}/api/menu/all`, {
             headers: headers
         });
     }
 
-    createRestaurant(form: IRestourant) {
+    createMenu(form: IMenu) {
         const headers = new HttpHeaders({
             'Content-Type': 'application/json',
         });
 
-        return this.http.post(`${environment.API_ENDPOINT}/api/restaurant/create`, form, {
+        return this.http.post(`${environment.API_ENDPOINT}/api/menu/create`, form, {
             headers: headers
         });
     }
 
-    editRestourantById(form: IRestourant, id: string) {
+    editMenuById(form: IMenu, id: string) {
         const headers = new HttpHeaders({
             'Content-Type': 'application/json',
         });
 
-        return this.http.post(`${environment.API_ENDPOINT}/api/restaurant/edit/${id}`, form, {
+        return this.http.post(`${environment.API_ENDPOINT}/api/menu/edit/${id}`, form, {
             headers: headers
         });
     }
 
-    deleteRestaurant(id: string) {
+    deleteMenu(id: string) {
         const headers = new HttpHeaders({
             'Content-Type': 'application/json',
         });
 
-        return this.http.delete(`${environment.API_ENDPOINT}/api/restaurant/delete/${id}`, {
+        return this.http.delete(`${environment.API_ENDPOINT}/api/menu/delete/${id}`, {
+            headers: headers
+        });
+    }
+
+    getAllMenuProducts(id: string) {
+        const headers = new HttpHeaders({
+            'Content-Type': 'application/json',
+        });
+
+        return this.http.get(`${environment.API_ENDPOINT}/api/menu/${id}/products`, {
             headers: headers
         });
     }

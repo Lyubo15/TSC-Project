@@ -3,7 +3,7 @@
 Fullstack Web Application with Express.js as REST service and Angular CLI version 11.0.1 for front end.
 
 ## Development server
-Run ng serve for a dev server. Navigate to http://localhost:4200/. The app will automatically reload if you change any of the source files.
+Run ng serve (TSC\front-end\tsc-app) for front-end server and npm start (TSC\back-end) for a back-end server. Navigate to http://localhost:4200/. The app will automatically reload if you change any of the source files.
 
 ## Code scaffolding
 Run ng generate component component-name to generate a new component. You can also use ng generate directive|pipe|service|class|guard|interface|enum|module.
